@@ -13,7 +13,7 @@ public class Spawner : MonoBehaviour
     public Vector3 QRPos = Vector3.zero;
     public int kinds = 10;
     public GameObject[] viruses;
-    public float spawnInterval = 1f;
+    public float difficultyLevel = 1f;
     public float totalTime = 60f;
     private float startTime = -1;
     private float lastSpawnTime = -1f;
@@ -31,7 +31,7 @@ public class Spawner : MonoBehaviour
 
     public void IntervalSliderChange()
     {
-        spawnInterval = intervalSlider.value;
+        difficultyLevel = intervalSlider.value;
     }
 
     public void OnButton()
@@ -69,7 +69,7 @@ public class Spawner : MonoBehaviour
             startTime = Time.time;
         }
 
-        if (Time.time - lastSpawnTime > spawnInterval)
+        if (Time.time - lastSpawnTime > difficultyLevel)
         {
             SpawnRandom();
             lastSpawnTime = Time.time;
